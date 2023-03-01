@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Wedding Invitation</title>
+	<link rel="stylesheet" href="weddingstyle.css">
+</head>
+<body>
+	<header>
+		<h1>Join us for our Wedding!</h1>
+	</header>
+	<main>
+		<section id="date-time">
+			<h2>Saturday, Mar 18, 2023 at 2:00 PM</h2>
+			<p>The ceremony will be held at the beautiful Lakeview Gardens in Houma, Yuncheng.</p>
+		</section>
+		<section id="rsvp">
+			<h2>RSVP</h2>
+			<form action="submit.php" method="post">
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name" required>
+				<label for="attendees">Number of Attendees:</label>
+				<input type="number" id="attendees" name="attendees" required>
+				<input type="submit" value="RSVP">
+			</form>
+		</section>
+	</main>
+	<footer>
+		<p>RSVP by Mar 10th, 2023</p>
+	</footer>
+</body>
+</html>
