@@ -1,32 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Wedding Invitation</title>
-	<link rel="stylesheet" href="weddingstyle.css">
+    <meta charset="UTF-8">
+    <title>Chao and Zhang Wedding Invitation</title>
+    <style>
+        body {
+            background-color: #ffe4e1;
+        }
+        h1 {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 4rem;
+            margin-top: 2rem;
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 80%;
+            height: auto;
+            margin-top: 2rem;
+        }
+        form {
+            text-align: center;
+            margin-top: 2rem;
+            font-family: Arial, sans-serif;
+            font-size: 2rem;
+        }
+        input[type="text"], input[type="number"] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 2px solid pink;
+            font-family: Arial, sans-serif;
+            font-size: 1.5rem;
+        }
+        input[type="submit"] {
+            background-color: pink;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 2rem;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-	<header>
-		<h1>Join us for our Wedding!</h1>
-	</header>
-	<main>
-		<section id="date-time">
-			<h2>Saturday, Mar 18, 2023 at 2:00 PM</h2>
-			<p>The ceremony will be held at the beautiful Lakeview Gardens in HM, YC.</p>
-		</section>
-		<section id="rsvp">
-			<h2>RSVP</h2>
-			<form action="submit.php" method="post">
-				<label for="name">Name:</label>
-				<input type="text" id="name" name="name" required>
-				<label for="attendees">Number of Attendees:</label>
-				<input type="number" id="attendees" name="attendees" required>
-				<input type="submit" value="RSVP">
-			</form>
-		</section>
-	</main>
-	<footer>
-		<p>RSVP by Mar 10th, 2023</p>
-	</footer>
-</body>
-</html>
+    <h1>Chao and Zhang Wedding Invitation</h1>
+    <img id="picture" src="picture1.png" alt="Chao and Zhang Wedding Invitation">
+    <form id="form" class="hidden">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="attendees">Number of Attendees:</label><br>
+        <input type="number" id="attendees" name="attendees" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        const picture = document.getElementById("picture");
+        const form = document.getElementById("form");
+        let count = 1;
+
+        picture.addEventListener("click", function() {
+            if (count === 1) {
+                picture.src = "picture2.jpg";
+                count++;
+            } else if (count === 2) {
+                picture.src = "picture3.jpg";
+                count++;
+            } else if (count === 3) {
+                picture.classList.add("hidden");
+                form.classList.remove("hidden");
+            }
+        });
+
+        const formSubmit = document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const nameInput = document.getElementById("name").value;
+            const attendeesInput = document.getElementById("attendees").value;
+            const currentDate = new Date();
+            const formattedDate = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDate() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+            alert(`Thank you ${nameInput}! Your response has been recorded. Number of attendees: ${attendeesInput}.`);
+            console.log(`Input date: ${formattedDate}, Name: ${nameInput}, Number of attendees: ${attendeesInput}`);
+        });
+    </script>
+</
